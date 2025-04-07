@@ -3,14 +3,45 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Document</title>
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&family=Roboto:ital,wght@0,100..900;1,100..900&display=swap"
+      rel="stylesheet"
+    />
+    <title>Erasmus Project</title>
   </head>
-  <body>
-    <header>
-      <!-- Η εφαρμογή θα αποτελείται από τις εξής (κατ’ ελάχιστον) html σελίδες, στις οποίες ο
-      επισκέπτης θα έχει πρόσβαση μέσω σχετικού μενού. -->
-    </header>
-    <!-- Πρόκειται για την κεντρική σελίδα της εφαρμογής σας, η οποία θα καλωσορίζει τον επισκέπτη
-    και θα τον προϊδεάζει για το περιεχόμενό της με μια σύντομη περιγραφή. -->
-  </body>
+  <header>
+    <!-- Erasmus Logo -->
+    <div class="erasmus-logo-container">
+      <a href="index.html">
+        <img
+          src="../images/erasmus_logo.png"
+          alt="Erasmus Logo"
+          class="erasmus-logo"
+        />
+      </a>
+    </div>
+
+    <!-- Navigation Bar -->
+    <div class="navbar">
+      <nav>
+        <ul>
+          <li><a href="more.html">Περισσότερες Πληροφορίες</a></li>
+          <li><a href="reqs.html">Απαιτήσεις</a></li>
+          <li><a href="application.html">Δήλωση</a></li>
+          <li><a href="sign-up.html">Εγγραφή</a></li>
+          <li><a href="login.html">Σύνδεση</a></li>
+        </ul>
+      </nav>
+    </div>
+
+    <!-- Navigation Bar Mobile version -->
+    <div class="mobile-navbar" onclick="toggleMenu()">
+      <i class="dropdown"></i>
+    </div>
+  </header>
+
+  <script src="../scripts/header.js"></script>
 </html>

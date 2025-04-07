@@ -1,0 +1,110 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 15px;
+  background: white;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+  position: fixed;
+  width: 100%;
+  top: 0;
+  z-index: 100;
+  height: 80px;
+}
+
+.erasmus-logo-container {
+  flex-shrink: 0;
+}
+
+.erasmus-logo {
+  height: 100px;
+  width: auto;
+}
+
+.navbar {
+  display: flex;
+  align-items: center;
+  margin-right: 40px;
+}
+
+.navbar ul {
+  display: flex;
+  gap: 50px;
+  list-style: none;
+  justify-content: flex-end;
+}
+
+.navbar a {
+  text-decoration: none;
+  color: #333;
+  font-weight: normal;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: blueviolet;
+}
+
+.mobile-navbar {
+  display: none; 
+}
+
+@media (min-width: 600px) and (max-width: 760px) {
+  .navbar ul {
+    gap: 30px;
+  }
+
+  .navbar {
+    display: none;
+  }
+
+  .mobile-navbar {
+    display: block;
+    margin-left: auto;
+  }
+
+  .dropdown {
+    display: inline-block;
+    width: 30px;
+    height: 3px;
+    background: #333;
+    position: relative;
+    cursor: pointer;
+  }
+
+  .dropdown::before,
+  .dropdown::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: inherit;
+  }
+
+  .dropdown::before {
+    top: -8px;
+  }
+
+  .dropdown::after {
+    top: 8px;
+  }
+
+  @media (max-width: 599px) {
+    .navbar {
+      display: none;
+      position: absolute;
+      top: 100%;
+      left: 0;
+      width: 100%;
+      /* Continue from here */
+    }
+  }
+}
