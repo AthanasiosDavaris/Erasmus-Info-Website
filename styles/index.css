@@ -1,0 +1,14 @@
+* {
+  margin: 0 auto;
+  padding: 0 auto;
+  box-sizing: border-box;
+  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.container {
+  max-width: 95%;
+  border: 3px solid black;
+  display: grid;
+  grid-template-columns: repeat();
+}
