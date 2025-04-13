@@ -65,6 +65,10 @@ footer {
   text-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
 
+.unis-info-text ul {
+  list-style-type: square;
+}
+
 @media (min-width: 600px) and (max-width: 902px) {
   .container {
     margin: 100px 30px 0;
