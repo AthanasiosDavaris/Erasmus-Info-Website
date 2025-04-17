@@ -13,47 +13,28 @@ body {
     grid-auto-rows: minmax(50px, auto);
     grid-gap: 10px;
     grid-template-areas:
-    "mti mti mti mti mti mti mti mti mti mti"
-    "mte mte mte mte mte mte mte mte mte mte"
-    "mte mte mte mte mte mte mte mte mte mte"
-    "mte mte mte mte mte mte mte mte mte mte"
-    "uti uti uti uti uti uti uti uti uti uti"
-    "ute ute ute ute ute ute ute ute ute ute"
-    "ute ute ute ute ute ute ute ute ute ute"
-    "uli uli uli uli uli ume ume ume ume ume"
-    "uli uli uli uli uli ume ume ume ume ume"
-    "uli uli uli uli uli ume ume ume ume ume"
-    "uli uli uli uli uli ume ume ume ume ume"
-    "uli uli uli uli uli ume ume ume ume ume"
-    "fot fot fot fot fot fot fot fot fot fot"
+    "m m m m m m m m m m"
+    "u u u u u u u u u u"
+    "f f f f f f f f f f";
 }
 
-.main-title {
-    grid-area: mti;
+main {
+    grid-area: m;
 }
 
-.main-text {
-    grid-area: mte;
-}
-
-.part-unis-title {
-    grid-area: uti;
-}
-
-.part-unis-text {
-    grid-area: ute;
-}
-
-.part-unis-list {
-    grid-area: uli;
-}
-
-.part-unis-media {
-    grid-area: ume;
+.part-unis {
+    grid-area: u;
+    display: grid;
+    grid-template-columns: repeat(var(--grid-size), 1fr);
+    grid-gap: 10px;
+    grid-template-areas: 
+    "t t t t t t t t t t"
+    "e e e e e e e e e e"
+    "l l l l l d d d d d";
 }
 
 footer {
-    grid-area: fot;
+    grid-area: f;
 }
 
 .main-title {
@@ -65,15 +46,28 @@ footer {
 }
   
 .part-unis-title {
+    grid-area: t;
     font-size: 25px;
     font-weight: bold;
     line-height: 1.2;
     margin-bottom: 15px;
     text-shadow: 0 3px 6px rgba(0,0,0,0.3);
 }
+
+.part-unis-text {
+    grid-area: e;
+}
+
+.part-unis-list {
+    grid-area: l;
+}
   
 .part-unis-list ul {
     list-style-type: none;
+}
+
+.part-unis-media {
+    grid-area: d;
 }
 
 .part-unis-media img {
