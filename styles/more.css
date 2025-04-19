@@ -15,6 +15,11 @@ body {
     grid-template-areas:
     "m m m m m m m m m m"
     "u u u u u u u u u u"
+    "u u u u u u u u u u"
+    "u u u u u u u u u u"
+    "u u u u u u u u u u"
+    "u u u u u u u u u u"
+    "u u u u u u u u u u"
     "f f f f f f f f f f";
 }
 
@@ -25,12 +30,16 @@ main {
 .part-unis {
     grid-area: u;
     display: grid;
-    grid-template-columns: repeat(var(--grid-size), 1fr);
-    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
     grid-template-areas: 
-    "t t t t t t t t t t"
-    "e e e e e e e e e e"
-    "l l l l l d d d d d";
+    "ti ti"
+    "te te"
+    "ox oi"
+    "lo li"
+    "al ai"
+    "ba bi"
+    "hu hi";
 }
 
 footer {
@@ -46,7 +55,7 @@ footer {
 }
   
 .part-unis-title {
-    grid-area: t;
+    grid-area: ti;
     font-size: 25px;
     font-weight: bold;
     line-height: 1.2;
@@ -55,23 +64,128 @@ footer {
 }
 
 .part-unis-text {
-    grid-area: e;
+    grid-area: te;
 }
 
-.part-unis-list {
-    grid-area: l;
+.oxford {
+    grid-area: ox;
 }
-  
+
+.london {
+    grid-area: lo;
+}
+
+.alexandria {
+    grid-area: al;
+}
+
+.barcelona {
+    grid-area: ba;
+}
+
+.humboldt {
+    grid-area: hu;
+}
+
+.oxford-img {
+    grid-area: oi;
+}
+
+.london-img {
+    grid-area: li;
+}
+
+.alexandria-img {
+    grid-area: ai;
+}
+
+.barcelona-img {
+    grid-area: bi;
+}
+
+.humboldt-img {
+    grid-area: hi;
+}
+
 .part-unis-list ul {
     list-style-type: none;
 }
 
-.part-unis-media {
-    grid-area: d;
-}
-
 .part-unis-media img {
     width: 100%;
-    height: auto;
+    height: 100%;
     display: block;
+    object-fit: cover;
+    max-height: 200px;
+    margin-top: 10px;
+}
+
+.uni-name {
+    font-size: large;
+    font-weight: bold;
+    line-height: 1.1;
+    margin-bottom: 10px;
+    margin-top: 10px;
+    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+}
+
+@media (max-width: 902px) and (min-width: 600px) {
+    .part-unis {
+        grid-gap: 15px;
+    }
+    
+    .part-unis-media img {
+        max-height: 250px;
+    }
+    
+    .uni-name {
+        font-size: 20px;
+    }
+    
+    .part-unis-title {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 599px) {
+    .part-unis {
+        grid-template-columns: 1fr;
+        grid-template-areas: 
+            "ti"
+            "te"
+            "ox"
+            "oi"
+            "lo"
+            "li"
+            "al"
+            "ai"
+            "ba"
+            "bi"
+            "hu"
+            "hi";
+        grid-gap: 10px;
+    }
+    
+    .part-unis-media img {
+        max-height: 200px;
+        margin-top: 10px;
+    }
+    
+    .uni-name {
+        font-size: 15px;
+    }
+    
+    .uni-info {
+
+        line-height: 1.4;
+    }
+    
+    .part-unis-title {
+        font-size: 20px;
+        margin-bottom: 10px;
+    }
+    
+    .main-title {
+        font-size: 24px;
+    }
 }
