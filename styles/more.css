@@ -1,5 +1,11 @@
 :root {
     --grid-size: 10;
+    --erasmus-color: rgb(5,120,204)
+}
+
+* {
+    font-family: Open Sans, Arial, Helvetica, sans-serif;
+    font-size: 15px;
 }
   
 body {
@@ -50,15 +56,14 @@ footer {
     margin-bottom: 15px;
     text-shadow: 0 3px 6px rgba(0,0,0,0.6);
 }
-  
-.part-unis-title {
+
+.section-title {
     grid-area: ti;
-    font-size: 25px;
-    font-weight: bold;
-    line-height: 1.2;
-    margin-top: 15px;
-    margin-bottom: 10px;
-    text-shadow: 0 3px 6px rgba(0,0,0,0.3);
+    font-size: 20px;
+    color: rgb(52,73,94);
+    border-bottom: 3px solid var(--erasmus-color);
+    padding-bottom: 5px;
+    margin: 20px 0 15px;
 }
 
 .part-unis-text {
