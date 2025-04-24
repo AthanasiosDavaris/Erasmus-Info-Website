@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/header.css" />
-    <link rel="stylesheet" href="../styles/more.css" />
+    <link rel="stylesheet" href="../styles/sign-up.css" />
     <link rel="stylesheet" href="../styles/footer.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -27,7 +27,7 @@
           />
         </a>
       </div>
-  
+
       <!-- Navigation Bar -->
       <div class="navbar">
         <nav>
@@ -40,15 +40,149 @@
           </ul>
         </nav>
       </div>
-  
+
       <!-- Navigation Bar Mobile version -->
       <div class="mobile-navbar" onclick="toggleMenu()">
         <div class="dropdown"></div>
       </div>
     </header>
 
-    
-    
+    <div class="container">
+      <main>
+        <div class="hero-title">Νέος Λογαριασμός</div>
+        <div class="hero-text">
+          Δημιουργία ενός νέου ονόματος χρήστη και κωδικού πρόσβασης για σύνδεση
+          στην πλατφόρμα Erasmus
+          <br /><br />Τα πεδία με θαυμαστικό &#9888; είναι υποχρεωτικά.
+        </div>
+      </main>
+
+      <section class="sign-up-container">
+        <form id="sign-up-form" action="#" method="post">
+          <div class="form-container">
+            <div class="form-group">
+              <div class="form-box">
+                <label for="firstName">Όνομα &#9888;</label>
+                <input
+                  type="text"
+                  name="firstName"
+                  required
+                  placeholder="Εισάγετε το όνομά σας"
+                />
+              </div>
+
+              <div class="form-box">
+                <label for="lastName">Επώνυμο &#9888;</label>
+                <input
+                  type="text"
+                  name="lastName"
+                  required
+                  placeholder="Εισάγετε το επώνυμό σας"
+                />
+              </div>
+
+              <div class="form-box">
+                <label for="studentId">Αριθμός Μητρώου &#9888;</label>
+                <input
+                  type="text"
+                  name="studentId"
+                  required
+                  pattern="[0-9]{13}"
+                  placeholder="Π.χ. 2022202200150"
+                />
+              </div>
+
+              <div class="form-box">
+                <label for="phone">Τηλέφωνο &#9888;</label>
+                <input
+                  type="tel"
+                  name="phone"
+                  required
+                  pattern="[0-9]{10}"
+                  placeholder="Π.χ. 6912345780"
+                />
+              </div>
+            </div>
+
+            <div class="form-group">
+              <div class="form-box">
+                <label for="email">Διεύθυνση mail &#9888;</label>
+                <input
+                  type="email"
+                  name="email"
+                  required
+                  placeholder="example@go.uop.gr"
+                />
+              </div>
+
+              <div class="form-box">
+                <label for="username">Όνομα Χρήστη &#9888;</label>
+                <input
+                  type="text"
+                  name="username"
+                  required
+                  placeholder="Διαλέξτε ένα μοναδικό username"
+                />
+              </div>
+
+              <div class="form-box">
+                <label for="password">Κωδικός Πρόσβασης &#9888;</label>
+                <input
+                  type="password"
+                  name="password"
+                  required
+                  placeholder="Τουλάχιστον 8 χαρακτήρες"
+                />
+                <div class="password-reqs">
+                  Ο κωδικός πρέπει να περιέχει:
+                  <ul>
+                    <li>Τουλάχιστον 1 πεζό γράμμα</li>
+                    <li>Τουλάχιστον 1 κεφαλαίο γράμμα</li>
+                    <li>Τουλάχιστον 1 αριθμό</li>
+                    <li>Τουλάχιστον 1 ειδικό χαρακτήρα</li>
+                  </ul>
+                </div>
+              </div>
+
+              <div class="form-box">
+                <label for="confirmPassword">Επιβεβαίωση Κωδικού &#9888;</label>
+                <input
+                  type="password"
+                  name="confirmPassword"
+                  required
+                  placeholder="Εισάγετε ξανά τον κωδικό σας"
+                />
+              </div>
+            </div>
+          </div>
+
+          <div class="form-terms">
+            <input type="checkbox" name="terms" required />
+            <label for="terms">
+              Αποδέχομαι τους
+              <a href="terms.html" target="_blank" rel="noopener noreferrer"
+                >Όρους Χρήσης</a
+              >
+              και την
+              <a
+                href="privacy-policy.html"
+                target="_blank"
+                rel="noopener noreferrer"
+                >Πολιτική Απορρήτου
+              </a>
+            </label>
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit" class="submit-button">
+              Δημιουργία Λογαριασμού
+            </button>
+            <button type="reset" class="cancel-button">Άκυρο</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
     <footer>
       <section class="left-section">
         <a href="https://dit.uop.gr">

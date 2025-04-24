@@ -1,0 +1,155 @@
+:root {
+  --grid-size: 1;
+  --erasmus-color: rgb(5,120,204)
+}
+
+body {
+  background-color: rgb(242, 250, 250);
+}
+
+* {
+  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+.container {
+  margin: 100px 20px 0;
+  display: grid;
+  grid-template-columns: repeat(var(--grid-size), 1fr);
+  grid-auto-rows: minmax(50px, auto);
+  grid-gap: 10px;
+  grid-template-areas:
+  "m"
+  "f";
+}
+
+main {
+  grid-area: m;
+}
+
+.hero-title {
+  grid-area: ti;
+  font-size: 28px;
+  font-weight: bolder;
+  line-height: 1.2;
+  margin-bottom: 15px;
+  text-shadow: 0 3px 6px rgba(0,0,0,0.6);
+}
+
+.sign-up-container {
+  grid-area: f;
+  max-width: 1000px;
+  margin: 100px auto 50px;
+  padding: 40px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+}
+
+.form-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 30px;
+}
+
+.form-group {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.password-reqs {
+  margin-top: 10px;
+  padding: 15px;
+  background: rgb(248,249,250);
+  border-radius: 6px;
+  font-size: 9px;
+  color: darkgray;
+}
+
+.password-reqs ul {
+  margin: 10px 0 0 20px;
+}
+
+.form-buttons {
+  display: flex;
+  gap: 20px;
+  margin-top: 30px;
+}
+
+.submit-button {
+  width: auto;
+  padding: 15px 30px;
+  background: var(--erasmus-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.submit-button:hover {
+  background: steelblue;
+}
+
+.cancel-button {
+  width: auto;
+  padding: 15px 30px;
+  background: crimson;
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.cancel-button:hover {
+background: palevioletred;
+}
+
+@media (min-width: 600px) and (max-width: 902px) {
+  .hero-title {
+    font-size: 26px;
+  }
+  
+  .sign-up-container {
+    padding: 30px;
+    margin: 80px auto 40px;
+  }
+
+  .form-container {
+    grid-template-columns: 1fr 1fr;
+    gap: 20px;
+  }
+
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .submit-button, .cancel-button {
+    width: 100%;
+  }
+}
+
+@media (max-width: 599px) {
+  .hero-title {
+    font-size: 24px;
+  }
+  
+  .sign-up-container {
+    padding: 20px;
+    margin: 60px auto 30px;
+  }
+
+  .form-container {
+    grid-template-columns: 1fr;
+  }
+  
+  .form-buttons {
+    flex-direction: column;
+  }
+
+  .submit-button, .cancel-button {
+    width: 100%;
+  }
+}

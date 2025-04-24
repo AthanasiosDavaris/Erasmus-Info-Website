@@ -28,7 +28,7 @@
           />
         </a>
       </div>
-  
+
       <!-- Navigation Bar -->
       <div class="navbar">
         <nav>
@@ -41,7 +41,7 @@
           </ul>
         </nav>
       </div>
-  
+
       <!-- Navigation Bar Mobile version -->
       <div class="mobile-navbar" onclick="toggleMenu()">
         <div class="dropdown"></div>
@@ -52,17 +52,30 @@
       <main>
         <div class="hero-title">Ελάχιστες Απαιτήσεις</div>
         <div class="hero-text">
-          Ονειρεύεστε να σπουδάσετε στο εξωτερικό με το Erasmus? Ξεκινήστε εδώ! <br>
-          Ελέγξτε αν πληροίτε τις ελάχιστες απαιτήσεις για να υποβάλετε αίτηση για πρόγραμμα ανταλλαγής Erasmus+ στο Πανεπιστήμιο Πελοποννήσου.
+          Ονειρεύεστε να σπουδάσετε στο εξωτερικό με το Erasmus? Ξεκινήστε εδώ!
+          <br />
+          Ελέγξτε αν πληροίτε τις ελάχιστες απαιτήσεις για να υποβάλετε αίτηση
+          για πρόγραμμα ανταλλαγής Erasmus+ στο Πανεπιστήμιο Πελοποννήσου.
         </div>
-        <img class="hero-img" src="../images/reqs-main-img.jpeg" alt="Photo of Students Studying">
+        <img
+          class="hero-img"
+          src="../images/reqs-main-img.jpeg"
+          alt="Photo of Students Studying"
+        />
         <p class="hero-p">
-          Για να υποβάλετε αίτηση για ανταλλαγή Erasmus+, πρέπει να πληροίτε τις ακόλουθες ελάχιστες απαιτήσεις. Αυτά εξασφαλίζουν ότι οι φοιτητές είναι ακαδημαϊκά προετοιμασμένοι για τις προκλήσεις των σπουδών στο εξωτερικό. Ελέγξτε τα παρακάτω κριτήρια και χρησιμοποιήστε τον Γρήγορο έλεγχο καταλληλότητας για να επαληθεύσετε αμέσως την καταλληλότητά σας!
+          Για να υποβάλετε αίτηση για ανταλλαγή Erasmus+, πρέπει να πληροίτε τις
+          ακόλουθες ελάχιστες απαιτήσεις. Αυτά εξασφαλίζουν ότι οι φοιτητές
+          είναι ακαδημαϊκά προετοιμασμένοι για τις προκλήσεις των σπουδών στο
+          εξωτερικό. Ελέγξτε τα παρακάτω κριτήρια και χρησιμοποιήστε τον Γρήγορο
+          έλεγχο καταλληλότητας για να επαληθεύσετε αμέσως την καταλληλότητά
+          σας!
         </p>
       </main>
 
       <section class="reqs-table">
-        <div class="section-title">Ελάχιστες Απαιτήσεις Υποβολής Αίτησης Erasmus+</div>
+        <div class="section-title">
+          Ελάχιστες Απαιτήσεις Υποβολής Αίτησης Erasmus+
+        </div>
         <table>
           <tr>
             <th><b>Κριτήριο</b></th>
@@ -74,7 +87,10 @@
           </tr>
           <tr>
             <th><b>Περασμένα μαθήματα (%)</b></th>
-            <th>≥70% των μαθημάτων που έχουν περαστεί μέχρι το τέλος του προηγούμενου ακαδημαϊκού έτους</th>
+            <th>
+              ≥70% των μαθημάτων που έχουν περαστεί μέχρι το τέλος του
+              προηγούμενου ακαδημαϊκού έτους
+            </th>
           </tr>
           <tr>
             <th><b>Μέσος Όρος Βαθμού</b></th>
@@ -82,7 +98,10 @@
           </tr>
           <tr>
             <th><b>Πιστοποιητικό Αγγλικής Γλωσσομάθειας</b></th>
-            <th>Επίπεδο B2 ή υψηλότερο (π.χ., NOCN, Michigan ή πανεπιστημιακή πιστοποίηση)</th>
+            <th>
+              Επίπεδο B2 ή υψηλότερο (π.χ., NOCN, Michigan ή πανεπιστημιακή
+              πιστοποίηση)
+            </th>
           </tr>
         </table>
       </section>
@@ -91,7 +110,6 @@
         <div class="section-title">Ελέγξτε τα Κριτήριά σας σε 1 Λεπτό!</div>
         <div class="form-container">
           <form id="eligibilityForm">
-
             <label>Τρέχον Έτος Σπουδών:</label>
             <select name="year" id="" required>
               <option value=""></option>
@@ -101,46 +119,105 @@
               <option value="4">4ο Έτος</option>
               <option value="5+">5ο Έτος+</option>
             </select>
-  
+
             <label>Περασμένα μαθήματα (%):</label>
-            <input type="number" name="percentage" min="0" max="100" required>
-            
+            <input type="number" name="percentage" min="0" max="100" required />
+
             <label>Μέσος Βαθμός:</label>
-            <input type="number" name="average" step="0.01" min="0" max="10 required">
-  
+            <input
+              type="number"
+              name="average"
+              step="0.01"
+              min="0"
+              max="10 required"
+            />
+
             <label>Επίπεδο Αγγλικών</label>
             <div class="radio-group">
-              <input class="radio-input" type="radio" name="english" value="A1" required>A1
-              <input class="radio-input" type="radio" name="english" value="A2">A2
-              <input class="radio-input" type="radio" name="english" value="B1">B1
-              <input class="radio-input" type="radio" name="english" value="B2">B2
-              <input class="radio-input" type="radio" name="english" value="C1">C1
-              <input class="radio-input" type="radio" name="english" value="C2">C2
+              <input
+                class="radio-input"
+                type="radio"
+                name="english"
+                value="A1"
+                required
+              />A1
+              <input
+                class="radio-input"
+                type="radio"
+                name="english"
+                value="A2"
+              />A2
+              <input
+                class="radio-input"
+                type="radio"
+                name="english"
+                value="B1"
+              />B1
+              <input
+                class="radio-input"
+                type="radio"
+                name="english"
+                value="B2"
+              />B2
+              <input
+                class="radio-input"
+                type="radio"
+                name="english"
+                value="C1"
+              />C1
+              <input
+                class="radio-input"
+                type="radio"
+                name="english"
+                value="C2"
+              />C2
             </div>
-  
+
             <button type="submit">Έλεγχος Καταλληλότητας</button>
           </form>
         </div>
 
-        <div class="form-note">Αυτός είναι ένας προκαταρκτικός έλεγχος. Η τελική καταλληλότητά επιβεβαιώνεται από το Γραφείο Erasmus μετά την επαλήθευση των εγγράφων.</div>
+        <div class="form-note">
+          Αυτός είναι ένας προκαταρκτικός έλεγχος. Η τελική καταλληλότητά
+          επιβεβαιώνεται από το Γραφείο Erasmus μετά την επαλήθευση των
+          εγγράφων.
+        </div>
       </section>
 
       <section class="pdf-download">
-        <div class="section-title">Χρειάζεστε περισσότερες λεπτομέρειες? Κατεβάστε τον οδηγό μας.</div>
+        <div class="section-title">
+          Χρειάζεστε περισσότερες λεπτομέρειες? Κατεβάστε τον οδηγό μας.
+        </div>
         <div class="download-icon-container">
-          <a href="../files/download/erasmus-programme-guide-v2.2025_el.pdf" class="download-link" download="erasmus-programme-guide-v2.2025_el.pdf">
-            <img class="pdf-icon" src="../images/pdf-icon.png" alt="pdf icon for download">
-            <div class="download-text">Erasmus+ Programmer Guide</div>
+          <a
+            href="../files/download/erasmus-programme-guide-v2.2025_el.pdf"
+            class="download-link"
+            download="erasmus-programme-guide-v2.2025_el.pdf"
+          >
+            <img
+              class="pdf-icon"
+              src="../images/pdf-icon.png"
+              alt="pdf icon for download"
+            />
+            <div class="download-text">Erasmus+ Programme Guide</div>
           </a>
         </div>
       </section>
 
       <section class="call-to-action">
-        <div class="call-to-action-text"><br>Έτοιμοι να κάνετε αίτηση; Επισκεφθείτε το Γραφείο Erasmus ή ελέγξτε τη <a href="../media/application.html">Σελίδα Αιτήσεων</a> για να γίνετε μέλος της ομάδας μας!</div>
-        <img class="call-to-action-img" src="../images/call-to-action-apply-img.png" alt="call to action apply image">
+        <div class="call-to-action-text">
+          <br />Έτοιμοι να κάνετε αίτηση; Επισκεφθείτε το Γραφείο Erasmus ή
+          ελέγξτε τη <a href="../media/application.html">Σελίδα Αιτήσεων</a> για
+          να γίνετε μέλος της ομάδας μας!
+        </div>
+        <img
+          class="call-to-action-img"
+          src="../images/call-to-action-apply-img.png"
+          alt="call to action apply image"
+        />
       </section>
     </div>
-    
+
     <footer>
       <section class="left-section">
         <a href="https://dit.uop.gr">

@@ -27,7 +27,7 @@
           />
         </a>
       </div>
-  
+
       <!-- Navigation Bar -->
       <div class="navbar">
         <nav>
@@ -40,7 +40,7 @@
           </ul>
         </nav>
       </div>
-  
+
       <!-- Navigation Bar Mobile version -->
       <div class="mobile-navbar" onclick="toggleMenu()">
         <div class="dropdown"></div>
@@ -51,139 +51,196 @@
       <main>
         <div class="hero-title">Αίτηση για Πρόγραμμα Erasmus+</div>
         <div class="hero-text">
-          Συμπληρώστε την παρακάτω φόρμα για να υποβάλετε την αίτησή σας για ανταλλαγή Erasmus+. Η υποβολή σας θα αξιολογηθεί με βάση τις ακαδημαϊκές επιδόσεις και τις προτιμήσεις σας. Βεβαιωθείτε ότι όλα τα δεδομένα είναι ακριβή και πλήρη
-          <br><br>Τα πεδία με θαυμαστικό &#9888; είναι υποχρεωτικά.
-          <br>Για ερωτήσεις, επικοινωνήστε με το Γραφείο Erasmus: <a href="mailto:erasmus@dit.uop.gr">erasmus@dit.uop.gr</a>
+          Συμπληρώστε την παρακάτω φόρμα για να υποβάλετε την αίτησή σας για
+          ανταλλαγή Erasmus+. Η υποβολή σας θα αξιολογηθεί με βάση τις
+          ακαδημαϊκές επιδόσεις και τις προτιμήσεις σας. Βεβαιωθείτε ότι όλα τα
+          δεδομένα είναι ακριβή και πλήρη
+          <br /><br />Τα πεδία με θαυμαστικό &#9888; είναι υποχρεωτικά.
+          <br />Για ερωτήσεις, επικοινωνήστε με το Γραφείο Erasmus:
+          <a href="mailto:erasmus@dit.uop.gr">erasmus@dit.uop.gr</a>
         </div>
       </main>
 
       <section class="application">
-          <form class="application-form">
-            <fieldset>
-              <legend>Προσωπικά Στοιχεία</legend>
+        <form class="application-form">
+          <fieldset>
+            <legend>Προσωπικά Στοιχεία</legend>
 
-              <div class="form-box">
-                <label>Όνομα &#9888;</label>
-                <input type="text" name="firstname" required placeholder="Π.χ. Αθανάσιος">
+            <div class="form-box">
+              <label>Όνομα &#9888;</label>
+              <input
+                type="text"
+                name="firstname"
+                required
+                placeholder="Π.χ. Αθανάσιος"
+              />
+            </div>
+
+            <div class="form-box">
+              <label>Επίθετο &#9888;</label>
+              <input
+                type="text"
+                name="lastname"
+                required
+                placeholder="Π.χ. Ντάβαρης"
+              />
+            </div>
+
+            <div class="form-box">
+              <label>Αριθμός Μητρώου &#9888;</label>
+              <input type="text" name="dit_uop_id" required pattern="[0-9]{13}
+              placeholder="Π.χ. 2022202200150">
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Ακαδημαϊκά Στοιχεία</legend>
+
+            <div class="form-box">
+              <label>Ποσοστό περασμένων μαθημάτων (%) &#9888;</label>
+              <input
+                type="number"
+                name="percentage_passed_lessons"
+                min="70"
+                max="100"
+                required
+                placeholder="Π.χ. 72"
+              />
+            </div>
+
+            <div class="form-box">
+              <label>Μέσος Όρος &#9888;</label>
+              <input
+                type="number"
+                name="gpa"
+                step="0.01"
+                min="6.5"
+                max="10"
+                required
+                placeholder="Π.χ 6.5"
+              />
+            </div>
+          </fieldset>
+
+          <fieldset>
+            <legend>Γλωσσικές Ικανότητες</legend>
+
+            <div class="form-box">
+              <label>Επίπεδο Αγγλικών &#9888;</label>
+              <div class="radio-group">
+                <label
+                  ><input type="radio" name="english" value="B2" required />
+                  B2</label
+                >
+                <label
+                  ><input type="radio" name="english" value="C1" /> C1</label
+                >
+                <label
+                  ><input type="radio" name="english" value="C2" /> C2</label
+                >
               </div>
+            </div>
 
-              <div class="form-box">
-                <label>Επίθετο &#9888;</label>
-                <input type="text" name="lastname" required placeholder="Π.χ. Ντάβαρης">
+            <div class="form-box">
+              <label>Γνώση άλλων γλωσσών; &#9888;</label>
+              <div class="radio-group">
+                <label
+                  ><input type="radio" name="other_languages" value="yes" />
+                  Ναι</label
+                >
+                <label
+                  ><input type="radio" name="other_languages" value="no" />
+                  Όχι</label
+                >
               </div>
+            </div>
+          </fieldset>
 
-              <div class="form-box">
-                <label>Αριθμός Μητρώου &#9888;</label>
-                <input type="text" name="dit_uop_id" required placeholder="Π.χ. 2022202200150">
-              </div>
-            </fieldset>
+          <fieldset>
+            <legend>Προτιμήσεις Πανεπιστημίων</legend>
 
-            <fieldset>
-              <legend>Ακαδημαϊκά Στοιχεία</legend>
+            <div class="form-box">
+              <label>1η Επιλογή &#9888;</label>
+              <select name="university1" required>
+                <option value=""></option>
+                <option>University of Oxford</option>
+                <option>Imperial College London</option>
+                <option>Alexandria University</option>
+                <option>University of Barcelona</option>
+                <option>Humboldt University</option>
+              </select>
+            </div>
 
-              <div class="form-box">
-                <label>Ποσοστό περασμένων μαθημάτων (%) &#9888;</label>
-                <input type="number" name="percentage_passed_lessons" min="70" max="100" required placeholder="Π.χ. 72">
-              </div>
+            <div class="form-box">
+              <label>2η Επιλογή &#9888;</label>
+              <select name="university2" required>
+                <option value=""></option>
+                <option>University of Oxford</option>
+                <option>Imperial College London</option>
+                <option>Alexandria University</option>
+                <option>University of Barcelona</option>
+                <option>Humboldt University</option>
+              </select>
+            </div>
 
-              <div class="form-box">
-                <label>Μέσος Όρος &#9888;</label>
-                <input type="number" name="gpa" step="0.01" min="6.5" max="10" required placeholder="Π.χ 6.5">
-              </div>
-            </fieldset>
+            <div class="form-box">
+              <label>3η Επιλογή &#9888;</label>
+              <select name="university3" required>
+                <option value=""></option>
+                <option>University of Oxford</option>
+                <option>Imperial College London</option>
+                <option>Alexandria University</option>
+                <option>University of Barcelona</option>
+                <option>Humboldt University</option>
+              </select>
+            </div>
+          </fieldset>
 
-            <fieldset>
-              <legend>Γλωσσικές Ικανότητες</legend>
+          <fieldset>
+            <legend>Επίσημα Έγγραφα</legend>
 
-              <div class="form-box">
-                <label>Επίπεδο Αγγλικών &#9888;</label>
-                <div class="radio-group">
-                  <label><input type="radio" name="english" value="B2" required> B2</label>
-                  <label><input type="radio" name="english" value="C1"> C1</label>
-                  <label><input type="radio" name="english" value="C2"> C2</label>
-                </div>
-              </div>
-
-              <div class="form-box">
-                <label>Γνώση άλλων γλωσσών; &#9888;</label>
-                <div class="radio-group">
-                  <label><input type="radio" name="other_languages" value="yes"> Ναι</label>
-                  <label><input type="radio" name="other_languages" value="no"> Όχι</label>
-                </div>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Προτιμήσεις Πανεπιστημίων</legend>
-
-              <div class="form-box">
-                <label>1η Επιλογή &#9888;</label>
-                <select name="university1" required>
-                  <option value=""></option>
-                  <option>University of Oxford</option>
-                  <option>Imperial College London</option>
-                  <option>Alexandria University</option>
-                  <option>University of Barcelona</option>
-                  <option>Humboldt University</option>
-                </select>
-              </div>
-
-              <div class="form-box">
-                <label>2η Επιλογή &#9888;</label>
-                <select name="university2" required>
-                  <option value=""></option>
-                  <option>University of Oxford</option>
-                  <option>Imperial College London</option>
-                  <option>Alexandria University</option>
-                  <option>University of Barcelona</option>
-                  <option>Humboldt University</option>
-                </select>
-              </div>
-
-              <div class="form-box">
-                <label>3η Επιλογή &#9888;</label>
-                <select name="university3" required>
-                  <option value=""></option>
-                  <option>University of Oxford</option>
-                  <option>Imperial College London</option>
-                  <option>Alexandria University</option>
-                  <option>University of Barcelona</option>
-                  <option>Humboldt University</option>
-                </select>
-              </div>
-            </fieldset>
-
-            <fieldset>
-              <legend>Επίσημα Έγγραφα</legend>
-
-              <div class="form-box">
-                <label>Αναλυτική Βαθμολογία (PDF) &#9888;</label>
-                <input type="file" accept=".doc, .docx, .rtf, .pdf, .wpd" required>
+            <div class="form-box">
+              <label>Αναλυτική Βαθμολογία (PDF) &#9888;</label>
+              <input
+                type="file"
+                accept=".doc, .docx, .rtf, .pdf, .wpd"
+                required
+              />
             </div>
 
             <div class="form-box">
               <label>Πτυχίο Αγγλικών</label>
-              <input type="file" accept=".doc, .docx, .rtf, .pdf, .wpd, .jpg, .png">
+              <input
+                type="file"
+                accept=".doc, .docx, .rtf, .pdf, .wpd, .jpg, .png"
+              />
             </div>
 
             <div class="form-box">
               <label>Πτυχία άλλων ξένων γλωσσών</label>
-              <input type="file" accept=".doc, .docx, .rtf, .pdf, .wpd, .jpg, .png" multiple>
+              <input
+                type="file"
+                accept=".doc, .docx, .rtf, .pdf, .wpd, .jpg, .png"
+                multiple
+              />
             </div>
-            </fieldset>
+          </fieldset>
 
-            <div class="terms-box">
-              <label>
-                <input type="checkbox" required>
-                Αποδέχομαι τους <a href="terms.html" target="_blank" rel="noopener noreferrer">Όρους Συμμετοχής</a>
-              </label>
-            </div>
+          <div class="terms-box">
+            <label>
+              <input type="checkbox" required />
+              Αποδέχομαι τους
+              <a href="terms.html" target="_blank" rel="noopener noreferrer"
+                >Όρους Συμμετοχής</a
+              >
+            </label>
+          </div>
 
-            <button type="submit">Υποβολή Αίτησης!!</button>
-          </form>
+          <button type="submit">Υποβολή Αίτησης!!</button>
+        </form>
       </section>
     </div>
-    
+
     <footer>
       <section class="left-section">
         <a href="https://dit.uop.gr">
@@ -214,4 +271,3 @@
     </footer>
   </body>
 </html>
-
