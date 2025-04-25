@@ -118,6 +118,51 @@ button[type="submit"]:hover {
     text-align: center;
 }
 
+.confirm-message {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.8);
+    display: none;
+    z-index: 100;
+}
+
+.confirm-content {
+    background: white;
+    max-width: 700px;
+    margin: 50px auto;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 25px rgba(0, 0, 0, 0.2);
+}
+
+.confirm-text {
+    text-align: center;
+    border-bottom: 2px solid var(--erasmus-color);
+    padding-bottom: 20px;
+    margin-bottom: 25px;
+}
+
+.return-button {
+    background: var(--erasmus-color);
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 25px;
+    cursor: pointer;
+    display: block;
+    margin: 20px auto 0;
+    transition: all 0.3s;
+}
+
+.return-button:hover {
+    background: steelblue;
+    transform: translateY(-2px);
+    box-shadow: 0 3px 12px rgba(5, 120, 204, 0.3);
+}
+
 @media (min-width: 600px) and (max-width: 902px) {
     .container {
         margin: 80px 15px 0;

@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <script src="../scripts/header.js"></script>
+    <script src="../scripts/application.js"></script>
     <title>Erasmus Project Applications</title>
   </head>
   <body>
@@ -236,9 +237,26 @@
             </label>
           </div>
 
-          <button type="submit">Υποβολή Αίτησης!!</button>
+          <button type="submit" onclick="showConfirmMessage()">
+            Υποβολή Αίτησης!!
+          </button>
         </form>
       </section>
+    </div>
+
+    <div class="confirm-message" id="confirmMessage">
+      <div class="confirm-content">
+        <div class="confirm-text">
+          &#10003; Η αίτησή σας υποβλήθηκε με επιτυχία!
+        </div>
+
+        <button
+          class="return-button"
+          onclick="window.location.href='index.html'"
+        >
+          Επιστροφή στην Αρχική
+        </button>
+      </div>
     </div>
 
     <footer>
