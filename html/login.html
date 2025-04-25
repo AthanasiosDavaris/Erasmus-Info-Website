@@ -4,7 +4,7 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <link rel="stylesheet" href="../styles/header.css" />
-    <link rel="stylesheet" href="../styles/more.css" />
+    <link rel="stylesheet" href="../styles/login.css" />
     <link rel="stylesheet" href="../styles/footer.css" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -47,6 +47,56 @@
       </div>
     </header>
 
+    <div class="container">
+      <main>
+        <div class="hero-title">Σύνδεση</div>
+        <div class="hero-text">
+          Εισάγετε τα στοιχεία σας για να συνδεθείτε στην πλατφόρμα Erasmus
+        </div>
+      </main>
+
+      <section class="login-container">
+        <form action="#" method="post">
+          <div class="login-form">
+            <div class="form-box">
+              <label for="username">Όνομα Χρήστη</label>
+              <input
+                type="text"
+                name="username"
+                required
+                placeholder="Π.χ. john_doe2023"
+              />
+            </div>
+
+            <div class="form-box">
+              <label for="password">Κωδικός Πρόσβασης</label>
+              <input
+                type="password"
+                name="password"
+                required
+                placeholder="Εισάγετε τον κωδικό σας"
+              />
+            </div>
+
+            <div class="form-buttons">
+              <button type="submit" class="submit-button">Σύνδεση</button>
+            </div>
+
+            <div class="additional-links">
+              <a href="https://en.wikipedia.org/wiki/Stamata_Revithi"
+                >Ξεχάσατε τον κωδικό σας;</a
+              ><br />
+              <div>
+                Δεν έχετε λογαριασμό;
+                <a href="https://en.wikipedia.org/wiki/William_Shakespeare"
+                  >Δημιουργία λογαριασμού</a
+                >
+              </div>
+            </div>
+          </div>
+        </form>
+      </section>
+    </div>
     <footer>
       <section class="left-section">
         <a href="https://dit.uop.gr">
