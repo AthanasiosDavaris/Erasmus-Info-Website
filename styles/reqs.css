@@ -36,7 +36,7 @@ main {
     grid-template-areas:
     "ti hi"
     "ht hi"
-    "hp hp";
+    "hp hi";
     align-items: start;
 }
 
@@ -57,8 +57,11 @@ main {
 .hero-img {
     grid-area: hi;
     width: 100%;
+    max-width: 550px;
     height: auto;
     object-fit: cover;
+    margin: 0 auto;
+    display: block;
 }
 
 .hero-p {
