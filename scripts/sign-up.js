@@ -28,10 +28,10 @@ document.addEventListener('DOMContentLoaded', function () {
     clearErrors();
 
     if (firstName.value.trim() === '') {
-      displayError(lastNameError, 'Το όνομα είναι υποχρεωτικό.');
+      displayError(firstNameError, 'Το όνομα είναι υποχρεωτικό.');
       isValid = false;
     } else if (/[0-9]/.test(firstName.value)) {
-      displayError(lastNameError, 'Το όνομα δεν πρέπει να περιέχει ψηφία.');
+      displayError(firstNameError, 'Το όνομα δεν πρέπει να περιέχει ψηφία.');
       isValid = false;
     }
 
