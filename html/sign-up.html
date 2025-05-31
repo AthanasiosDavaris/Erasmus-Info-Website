@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <script src="../scripts/header.js"></script>
+    <script src="../scripts/sign-up.js"></script>
     <title>ErasmApp Sign Up</title>
   </head>
   <body>
@@ -58,49 +59,59 @@
       </main>
 
       <section class="sign-up-container">
-        <form id="sign-up-form" action="sign-up.php" method="post">
+        <form id="sign-up-form" action="sign-up.php" method="post" novalidate>
           <div class="form-container">
             <div class="form-group">
               <div class="form-box">
                 <label for="firstName">Όνομα &#9888;</label>
                 <input
                   type="text"
+                  id="firstName"
                   name="firstName"
                   required
                   placeholder="Εισάγετε το όνομά σας"
+                  pattern="^[^0-9]*$"
                 />
+                <span class="error-message" id="firstNameError"></span>
               </div>
 
               <div class="form-box">
                 <label for="lastName">Επώνυμο &#9888;</label>
                 <input
                   type="text"
+                  id="lastName"
                   name="lastName"
                   required
                   placeholder="Εισάγετε το επώνυμό σας"
+                  pattern="^[^0-9]*$"
                 />
+                <span class="error-message" id="lastNameError"></span>
               </div>
 
               <div class="form-box">
                 <label for="studentId">Αριθμός Μητρώου &#9888;</label>
                 <input
                   type="text"
+                  id="studentId"
                   name="studentId"
                   required
-                  pattern="[0-9]{13}"
+                  pattern="2022[0-9]{9}"
                   placeholder="Π.χ. 2022202200150"
                 />
+                <span class="error-message" id="studentIdError"></span>
               </div>
 
               <div class="form-box">
                 <label for="phone">Τηλέφωνο &#9888;</label>
                 <input
                   type="tel"
+                  id="phone"
                   name="phone"
                   required
                   pattern="[0-9]{10}"
                   placeholder="Π.χ. 6912345780"
                 />
+                <span class="error-message" id="phoneError"></span>
               </div>
             </div>
 
@@ -109,37 +120,42 @@
                 <label for="email">Διεύθυνση mail &#9888;</label>
                 <input
                   type="email"
+                  id="email"
                   name="email"
                   required
                   placeholder="example@go.uop.gr"
                 />
+                <span class="error-message" id="emailError"></span>
               </div>
 
               <div class="form-box">
                 <label for="username">Όνομα Χρήστη &#9888;</label>
                 <input
                   type="text"
+                  id="username"
                   name="username"
                   required
                   placeholder="Διαλέξτε ένα μοναδικό username"
                 />
+                <span class="error-message" id="usernameError"></span>
               </div>
 
               <div class="form-box">
                 <label for="password">Κωδικός Πρόσβασης &#9888;</label>
                 <input
                   type="password"
+                  id="password"
                   name="password"
                   required
-                  placeholder="Τουλάχιστον 8 χαρακτήρες"
+                  placeholder="Τουλάχιστον 5 χαρακτήρες, 1 σύμβολο"
+                  pattern="(?=.*[!@#$%^&*()_+\-=\[\]{};':\\|,.&lt;>\/?~`]).{5,}"
                 />
+                <span class="error-message" id="passwordError"></span>
                 <div class="password-reqs">
                   Ο κωδικός πρέπει να περιέχει:
                   <ul>
-                    <li>Τουλάχιστον 1 πεζό γράμμα</li>
-                    <li>Τουλάχιστον 1 κεφαλαίο γράμμα</li>
-                    <li>Τουλάχιστον 1 αριθμό</li>
-                    <li>Τουλάχιστον 1 ειδικό χαρακτήρα</li>
+                    <li>Τουλάχιστον 5 χαρακτήρες</li>
+                    <li>Τουλάχιστον 1 ειδικό χαρακτήρα (π.χ. !, #, $)</li>
                   </ul>
                 </div>
               </div>
@@ -148,16 +164,20 @@
                 <label for="confirmPassword">Επιβεβαίωση Κωδικού &#9888;</label>
                 <input
                   type="password"
+                  id="confirmPassword"
                   name="confirmPassword"
                   required
                   placeholder="Εισάγετε ξανά τον κωδικό σας"
                 />
+                <span class="error-message" id="confirmPasswordError"></span>
               </div>
             </div>
           </div>
 
+          <div id="formMainError" class="error-main-message"></div>
+
           <div class="form-terms">
-            <input type="checkbox" name="terms" required />
+            <input type="checkbox" id="terms" name="terms" required />
             <label for="terms">
               Αποδέχομαι τους
               <a href="terms.html" target="_blank" rel="noopener noreferrer"
@@ -171,6 +191,7 @@
                 >Πολιτική Απορρήτου
               </a>
             </label>
+            <span class="error-message" id="termsError"></span>
           </div>
 
           <div class="form-redirect-to-login">

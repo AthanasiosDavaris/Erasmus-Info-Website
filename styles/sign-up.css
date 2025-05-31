@@ -157,6 +157,32 @@ main {
   background: palevioletred;
 }
 
+.error-message {
+  color: red;
+  font-size: 17px;
+  display: block;
+  margin-top: 3px;
+  min-height: 1px;
+}
+
+.error-main-message {
+  color: red;
+  font-size: 17px;
+  display: block;
+  margin-top: 3px;
+  min-height: 1px;
+  text-align: center;
+  font-weight: bold;
+}
+
+.form-box input:invalid {
+  border-color: lightgray;
+}
+
+.form-box input.error-input {
+  border-color: red !important;
+}
+
 @media (min-width: 600px) and (max-width: 902px) {
   .hero-title {
     font-size: 24px;
