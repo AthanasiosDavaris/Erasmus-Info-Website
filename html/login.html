@@ -13,6 +13,7 @@
       rel="stylesheet"
     />
     <script src="../scripts/header.js"></script>
+    <script src="../scripts/login.js"></script>
     <title>ErasmApp Login</title>
   </head>
   <body>
@@ -53,15 +54,17 @@
         <div class="hero-text">
           Εισάγετε τα στοιχεία σας για να συνδεθείτε στην πλατφόρμα Erasmus
         </div>
+        <div id="messageArea"></div>
       </main>
 
       <section class="login-container">
-        <form action="#" method="post">
+        <form action="login.php" method="post">
           <div class="login-form">
             <div class="form-box">
               <label for="username">Όνομα Χρήστη</label>
               <input
                 type="text"
+                id="username"
                 name="username"
                 required
                 placeholder="Π.χ. john_doe2023"
@@ -72,6 +75,7 @@
               <label for="password">Κωδικός Πρόσβασης</label>
               <input
                 type="password"
+                id="password"
                 name="password"
                 required
                 placeholder="Εισάγετε τον κωδικό σας"
@@ -83,8 +87,7 @@
             </div>
 
             <div class="additional-links">
-              <a href="https://www.wikipedia.org">Ξεχάσατε τον κωδικό σας;</a
-              ><br />
+              <a href="forgot_password.php">Ξεχάσατε τον κωδικό σας;</a><br />
               <div>
                 Δεν έχετε λογαριασμό;
                 <a href="sign-up.html">Δημιουργία λογαριασμού</a>

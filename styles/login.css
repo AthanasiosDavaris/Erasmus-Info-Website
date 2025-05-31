@@ -79,7 +79,6 @@ main {
   background: steelblue;
 }
 
-
 .additional-links {
   text-align: center;
   margin-top: 20px;
@@ -93,6 +92,28 @@ main {
 
 .additional-links a:hover {
   text-decoration: underline;
+}
+
+.error-message {
+  color: red;
+  background-color: lavenderblush;
+  border: 1px solid red;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  text-align: center;
+  display: none;
+}
+
+.success-message {
+  color: green;
+  background-color: rgb(232, 245, 233);
+  border: 1px solid green;
+  padding: 10px;
+  margin-bottom: 15px;
+  border-radius: 4px;
+  text-align: center;
+  display: none;
 }
 
 @media (min-width: 600px) and (max-width: 902px) {
