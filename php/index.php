@@ -1,5 +1,8 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -19,7 +22,7 @@
     <header>
       <!-- Erasmus Logo -->
       <div class="erasmus-logo-container">
-        <a href="index.html">
+        <a href="index.php">
           <img
             src="../media/erasmus_logo.png"
             alt="Erasmus Logo"
@@ -34,9 +37,14 @@
           <ul>
             <li><a href="more.html">Περισσότερες Πληροφορίες</a></li>
             <li><a href="reqs.html">Απαιτήσεις</a></li>
-            <li><a href="application.html">Δήλωση</a></li>
-            <li><a href="sign-up.html">Εγγραφή</a></li>
-            <li><a href="login.html">Σύνδεση</a></li>
+            <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
+              <li><a href="application.php">Δήλωση</a></li>
+              <li><a href="profile.php">Προφίλ (<?php echo htmlspecialchars($_SESSION['username']); ?>)</a></li>
+              <li><a href="logout.php">Αποσύνδεση</a></li>
+            <?php else: ?>
+              <li><a href="sign-up.html">Εγγραφή</a></li>
+              <li><a href="login.html">Σύνδεση</a></li>
+            <?php endif; ?>
           </ul>
         </nav>
       </div>
@@ -56,7 +64,11 @@
         Τηλεπικοινωνιών! Ξεκινήστε ένα μεταμορφωτικό ταξίδι ακαδημαϊκής
         αριστείας και πολιτιστικής ανακάλυψης. Σπουδάστε στο εξωτερικό σε
         διάσημα ευρωπαϊκά πανεπιστήμια κερδίζοντας μόρια για το πτυχίο σας.
-        <a href="application.html">Ξεκινήστε το ταξίδι σας σήμερα</a>
+        <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
+          <a href="application.php">Ξεκινήστε το ταξίδι σας σήμερα</a>
+        <?php else: ?>
+          <p>Παρακαλούμε <a href="login.php">συνδεθείτε</a> ή <a href="sign-up.php">εγγραφείτε</a> για να συνεχίσετε.</p>
+        <?php endif; ?>
       </main>
       <aside class="unistudents-photo">
         <img src="../media/erasmus-photo.png" alt="Photo of Erasmus" />
