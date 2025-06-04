@@ -49,7 +49,7 @@ document.addEventListener('DOMContentLoaded', function(){
         } else {
           reason = 'Απαιτείται: ≥70%';
         }
-        messages.push('<strong>Περασμένα μαθήματα (%):</strong> <span style="color: red;">Δεν πληροίται</span> (' + reason + ', Εισαγωγή: ' + (passedCourses.value || 'Καμία') + '%)');
+        messages.push('<strong>Περασμένα μαθήματα (%):</strong> <span style="color: red;">Δεν πληροίται</span> (' + reason + ', Εισαγωγή: ' + ((document.querySelector('input[name="percentage]').value) || 'Καμία') + '%)');
         eligibility = false;
       }
 
@@ -64,7 +64,7 @@ document.addEventListener('DOMContentLoaded', function(){
         } else {
           reason = 'Απαιτείται: ≥6.50';
         }
-        messages.push('<strong>Μέσος Όρος Βαθμού:</strong> <span style="color: red;">Δεν πληροίται</span> (' + reason + ', Εισαγωγή: ' + (document.querySelector('input[name="average"]').value || 'Καμία') + ')')
+        messages.push('<strong>Μέσος Όρος Βαθμού:</strong> <span style="color: red;">Δεν πληροίται</span> (' + reason + ', Εισαγωγή: ' + (passedCourses || 'Καμία') + ')')
         eligibility = false;
       }
 
