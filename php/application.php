@@ -1,5 +1,14 @@
+<?php
+  session_start();
+
+  if (!isset($_SESSION['login']) || $_SESSION['login'] !== true) {
+    header("Location: login.php?error=unauthorized");
+    exit;
+  }
+?>
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -20,7 +29,7 @@
     <header>
       <!-- Erasmus Logo -->
       <div class="erasmus-logo-container">
-        <a href="index.html">
+        <a href="index.php">
           <img
             src="../media/erasmus_logo.png"
             alt="Erasmus Logo"
@@ -33,11 +42,11 @@
       <div class="navbar">
         <nav>
           <ul>
-            <li><a href="more.html">Περισσότερες Πληροφορίες</a></li>
-            <li><a href="reqs.html">Απαιτήσεις</a></li>
-            <li><a href="application.html">Δήλωση</a></li>
-            <li><a href="sign-up.html">Εγγραφή</a></li>
-            <li><a href="login.html">Σύνδεση</a></li>
+            <li><a href="more.php">Περισσότερες Πληροφορίες</a></li>
+            <li><a href="reqs.php">Απαιτήσεις</a></li>
+            <li><a href="application.php">Δήλωση</a></li>
+            <li><a href="sign-up.php">Εγγραφή</a></li>
+            <li><a href="login.php">Σύνδεση</a></li>
           </ul>
         </nav>
       </div>
@@ -231,7 +240,7 @@
             <label>
               <input type="checkbox" required />
               Αποδέχομαι τους
-              <a href="terms.html" target="_blank" rel="noopener noreferrer"
+              <a href="terms.php" target="_blank" rel="noopener noreferrer"
                 >Όρους Συμμετοχής</a
               >
             </label>
@@ -252,7 +261,7 @@
 
         <button
           class="return-button"
-          onclick="window.location.href='index.html'"
+          onclick="window.location.href='index.php'"
         >
           Επιστροφή στην Αρχική
         </button>

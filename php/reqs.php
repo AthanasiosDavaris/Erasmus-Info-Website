@@ -1,5 +1,8 @@
+<?php
+  session_start();
+?>
 <!DOCTYPE html>
-<html lang="en">
+<html lang="el">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -14,13 +17,13 @@
     />
     <script src="../scripts/header.js"></script>
     <script src="../scripts/reqs.js"></script>
-    <title>ErasmApp Requirements</title>
+    <title>ErasmApp Απαιτήσεις</title>
   </head>
   <body>
     <header>
       <!-- Erasmus Logo -->
       <div class="erasmus-logo-container">
-        <a href="index.html">
+        <a href="index.php">
           <img
             src="../media/erasmus_logo.png"
             alt="Erasmus Logo"
@@ -33,11 +36,16 @@
       <div class="navbar">
         <nav>
           <ul>
-            <li><a href="more.html">Περισσότερες Πληροφορίες</a></li>
-            <li><a href="reqs.html">Απαιτήσεις</a></li>
-            <li><a href="application.html">Δήλωση</a></li>
-            <li><a href="sign-up.html">Εγγραφή</a></li>
-            <li><a href="login.html">Σύνδεση</a></li>
+            <li><a href="more.php">Περισσότερες Πληροφορίες</a></li>
+            <li><a href="reqs.php">Απαιτήσεις</a></li>
+            <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
+              <li><a href="application.php">Δήλωση</a></li>
+              <li><a href="profile.php">Προφίλ (<?php echo htmlspecialchars($_SESSION['username']); ?>)</a></li>
+              <li><a href="logout.php">Αποσύνδεση</a></li>
+            <?php else: ?>
+              <li><a href="sign-up.php">Εγγραφή</a></li>
+              <li><a href="login.php">Σύνδεση</a></li>
+            <?php endif; ?>
           </ul>
         </nav>
       </div>
@@ -208,8 +216,12 @@
       <section class="call-to-action">
         <div class="call-to-action-text">
           <br />Έτοιμοι να κάνετε αίτηση; Επισκεφθείτε το Γραφείο Erasmus ή
-          ελέγξτε τη <a href="../html/application.html">Σελίδα Αιτήσεων</a> για
-          να γίνετε μέλος της ομάδας μας!
+          <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true):  ?>
+            ελέγξτε τη <a href="../html/application.php">Σελίδα Αιτήσεων</a>
+          <?php else: ?>
+            <a href="login.php">Συνδεθείτε</a>
+          <?php endif; ?>
+          για να γίνετε μέλος της ομάδας μας!
         </div>
         <img
           class="call-to-action-img"

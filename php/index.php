@@ -35,15 +35,15 @@
       <div class="navbar">
         <nav>
           <ul>
-            <li><a href="more.html">Περισσότερες Πληροφορίες</a></li>
-            <li><a href="reqs.html">Απαιτήσεις</a></li>
+            <li><a href="more.php">Περισσότερες Πληροφορίες</a></li>
+            <li><a href="reqs.php">Απαιτήσεις</a></li>
             <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
               <li><a href="application.php">Δήλωση</a></li>
               <li><a href="profile.php">Προφίλ (<?php echo htmlspecialchars($_SESSION['username']); ?>)</a></li>
               <li><a href="logout.php">Αποσύνδεση</a></li>
             <?php else: ?>
-              <li><a href="sign-up.html">Εγγραφή</a></li>
-              <li><a href="login.html">Σύνδεση</a></li>
+              <li><a href="sign-up.php">Εγγραφή</a></li>
+              <li><a href="login.php">Σύνδεση</a></li>
             <?php endif; ?>
           </ul>
         </nav>

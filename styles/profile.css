@@ -1,0 +1,22 @@
+:root {
+  --grid-size: 10;
+  --erasmus-color: rgb(5,120,204)
+}
+
+* {
+  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+  
+body {
+  background-color: rgb(242, 250, 250);
+  margin: 20px;
+}
+
+.container {
+  max-width: 800px;
+  margin: auto;
+  padding: 20px;
+  background: whitesmoke;
+  border-radius: 8px;
+}
