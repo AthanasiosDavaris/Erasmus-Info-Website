@@ -11,7 +11,7 @@ $options = [
 ];
 
 try {
-  $pdo = new PDO($dsn, $db_user, $db_password, $options);
+  $pdo = new PDO($db_info, $db_user, $db_password, $options);
 } catch (PDOException $e) {
   error_log("Database Connection Error: " . $e->getMessage());
   header("Location: login.php?error=3");
@@ -20,7 +20,7 @@ try {
 
 if ($_SERVER["REQUEST_METHOD"] == "POST") {
   $username = isset($_POST['username']) ? trim($_POST['username']) : '';
-  $password = isset($_POST['password']) ? $_POST['username'] : '';
+  $password = isset($_POST['password']) ? $_POST['password'] : '';
 
   if (empty($username) || empty($password)) {
     header("Location: login.php?error=2");
