@@ -4,7 +4,7 @@
 }
 
 * {
-  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  font-family: 'Open Sans', Arial, Helvetica, sans-serif;
   font-size: 15px;
   box-sizing: border-box;
 }
@@ -26,20 +26,198 @@ body {
 .profile-container {
   max-width: 700px;
   margin: 20px auto 50px;
+  padding: 20px 30px;
+  background: white;
+  border-radius: 8px;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+  text-align: center;
+}
+
+.profile-container h1 {
+  font-size: 24px;
+  color: darkorchid;
+  margin-bottom: 10px;
+}
+
+.profile-container p {
+  font-size: 15px;
+  color: mediumorchid;
+  line-height: 1.6;
+}
+
+.profile-container p strong {
+  color: var(--erasmus-color);
+}
+
+.profile-form {
+  max-width: 600px;
+  margin: 0 auto 50px;
   padding: 30px 40px;
   background: white;
   border-radius: 8px;
   box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
 }
 
-.profile-container h1 {
-  
+.profile-form h2 {
+  font-size: 18px;
+  color: var(--erasmus-color); /* maybe change to 52, 73, 94 */
+  margin-top: 10px;
+  margin-bottom: 15px;
+  border-bottom: 1px solid whitesmoke;
+  padding-bottom: 10px;
+}
+
+.profile-form .form-box {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.profile-form .form-box label {
+  font-weight: 600;
+  color: darkorchid;
+  font-size: 14px;
+}
+
+.profile-form .form-box input[type="text"],
+.profile-form .form-box input[type="email"],
+.profile-form .form-box input[type="tel"],
+.profile-form .form-box input[type="password"] {
+  padding: 12px;
+  border: 1px solid rgb(221, 221, 221);
+  border-radius: 6px;
+  font-size: 14px;
+  width: 100%;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.profile-form .form-box input:focus {
+  border-color: var(--erasmus-color);
+  box-shadow: 0 0 0 2px rgba( 5, 120, 204, 0.2);
+  outline: none;
+}
+
+.password-reqs {
+  margin-top: 5px;
+  padding: 10px 15px;
+  background: rgb(246, 149, 250); /* maybe change to 248, 249, 250 */
+  border: 1px solid var(--erasmus-color); /* maybe change to 233, 236, 239 */
+  border-radius: 4px;
+  font-size: 12px;
+  color: dimgray;
+}
+
+.password-reqs ul {
+  margin: 5px 0 0 0;
+  padding-left: 15px;
+  list-style-type: disc;
+}
+
+.password-reqs li {
+  margin-bottom: 3px;
+}
+
+.profile-form .form-buttons {
+  display: flex;
+  justify-content: flex-start;
+  margin-top: 15px;
+}
+
+.profile-form .submit-button {
+  padding: 12px 25px;
+  background: var(--erasmus-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 15px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  text-align: center;
+}
+
+.profile-form .submit-button:hover {
+  background: steelblue;
+}
+
+.message-area {
+  max-width: 600px;
+  margin: 20px auto;
+}
+
+.success-message,
+.error-message {
+  padding: 12px 15px;
+  margin-bottom: 15px;
+  border-radius: 6px;
+  text-align: left;
+  font-size: 14px;
+  display: none;
 }
 
 .success-message {
+  color: darkgreen;
+  background-color: lightgreen;
+  border: 1px solid green;
   display: block;
 }
 
 .error-message {
+  color: darkred;
+  background-color: lightgoldenrodyellow;
+  border: 1px solid red;
   display: block;
+}
+
+.profile-form hr {
+  border: none;
+  border-top: 1px solid whitesmoke;
+  margin: 25px 0;
+}
+
+@media (max-width: 902px) {
+  .profile-container,
+  .profile-form {
+    margin-left: 15px;
+    margin-right: 15px;
+    padding-left: 20px;
+    padding-right: 20px;
+  }
+}
+
+@media (max-width: 599px) {
+  body {
+    margin-top: 70px;
+  }
+
+  .profile-container h1 {
+    font-size: 20px;
+  }
+
+  .profile-form {
+    padding: 20px;
+    gap: 15px;
+  }
+
+  .profile-form .form-box input[type="text"],
+  .profile-form .form-box input[type="email"],
+  .profile-form .form-box input[type="tel"],
+  .profile-form .form-box input[type="password"] {
+    padding: 10px;
+    font-size: 13px;
+  }
+
+  .profile-form .submit-button {
+    padding: 10px 20px;
+    font-size: 14px;
+    width: 100%;
+  }
+
+  .password-reqs {
+    font-size: 11px;
+    padding: 8px 10px;
+  }
 }

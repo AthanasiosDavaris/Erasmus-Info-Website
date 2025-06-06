@@ -41,12 +41,31 @@
     if($_GET['update'] === 'success') {
       $success_message = "Το προφίλ ενημερώθηκε με επιτυχία!";
     } elseif($_GET['update'] === 'error') {
-      $error_message = "Προέκυψε σφάλμα κατά την ενημέρωση του προφίλ. " . ($_GET['error_msg'] ?? '');
+      $error_code = $_GET['error_msg'] ?? '';
+      switch ($error_code) {
+        case 'db_connection_error':
+          $error_message = "Σφάλμα σύνδεσης με τη βάση δεδομένων κατά την ενημέρωση.";
+          break;
+        case 'db_update_failed':
+          $error_message = "Προέκυψε σφάλμα κατά την αποθήκευση των αλλαγών.";
+          break;
+        case 'email_exists':
+          $error_message = "Το email που δηλώσατε χρησιμοποιείται ήδη.";
+          break;
+        case 'user_not_found':
+          $error_message = "Δεν βρέθηκε ο χρήστης για ενημέρωση.";
+          break;
+        default:
+          $error_message = "ΤΠροέκυψε σφάλμα κατά την ενημέρωση του προφίλ.";
+          if ($error_code) {
+            $error_message .= " (" . htmlspecialchars($error_code) . ")";
+          }
+      }
     } elseif($_GET['update'] === 'validation') {
-      $specific_error = $_GET['error_msg'] ?? 'invalid_data';
-      switch ($specific_error) {
-        case 'required_fields':
-          $error_message = "Όλα τα πεδία με αστερίσκο είναι υποχρεωτικά.";
+      $error_code = $_GET['error_msg'] ?? 'invalid_data';
+      switch ($error_code) {
+        case 'required_email_field':
+          $error_message = "Το πεδίο Email είναι υποχρεωτικό και δεν μπορεί να είναι κενό.";
           break;
         case 'invalid_email':
           $error_message = "Η μορφή του email δεν είναι έγκυρη.";
@@ -57,12 +76,23 @@
         case 'password_short':
           $error_message = "Ο νέος κωδικός πρέπει να είναι τουλάχιστον 8 χαρακτήρες.";
           break;
-        case 'email_exists':
-          $error_message = "Αυτό το email χρησιμοποιείται ήδη από άλλο χρήστη.";
+        case 'password_special_char':
+          $error_message = "Ο νέος κωδικός πρόσβασης πρέπει να περιέχει τουλάχιστον έναν ειδικό χαρακτήρα.";
+          break;
+        case 'invalid_student_id':
+          $error_message = "Ο αριθμός μητρώου πρέπει να αποτελείται από 13 ψηφία, να ξεκινάει με '2022' και να περιέχει μόνο ψηφία.";
+          break;
+        case 'invalid_phone':
+          $error_message = "Το τηλέφωνο πρέπει να αποτελείται από ακριβώς 10 ψηφία.";
+          break;
+        case 'invalid_name':
+          $error_message = "Το όνομα και το επώνυμο δεν πρέπει να περιέχουν αριθμούς.";
           break;
         default:
-          $error_message = "Τα δεδομένα που υποβλήθηκαν δεν είναι έγκυρα.";
+          $error_message = "Τα δεδομένα που υποβλήθηκαν δεν είναι έγκυρα. Παρακαλώ ελέγξτε τα πεδία.";
       }
+    } elseif($_GET['update'] === 'no_changes') {
+      $success_message = "Δεν έγιναν αλλαγές στα στοιχεία σας.";
     }
   }
 ?>
@@ -82,6 +112,7 @@
     rel="stylesheet"
   />
   <script src="../scripts/header.js"></script>
+  <script src="../scripts/profile.js"></script>
   <title>ErasmApp Προφίλ Χρήστη - <?php echo $username; ?></title>
 </head>
 <body>
@@ -125,7 +156,7 @@
       <div class="profile-container">
         <h1>Επεξεργασία Προφίλ του Χρήστη <?php echo htmlspecialchars($_SESSION['username']); ?></h1>
         <p>Όνομα Χρήστη: <strong><?php echo htmlspecialchars($_SESSION['username']); ?></strong> (δεν μπορεί να αλλάξει)</p>
-        <p>Τα πεδία με &#9888; είναι υποχρεωτικά.</p>
+        <p>Αφήστε κενό ένα πεδίο (εκτός του email) για να μην αλλάξει. Το email είναι υποχρεωτικό (&#9888;).</p>
       </div>
 
       <div class="message-area">
@@ -138,32 +169,66 @@
       </div>
 
       <?php if ($user_data): ?>
-        <form action="update_user_info.php" method="post" class="profile-form">
+        <form id="profileUpdateForm" action="update_user_info.php" method="post" class="profile-form">
           <div class="form-box">
-            <label for="first_name">Όνομα: &#9888;</label>
-            <input type="text" name="first_name" id="firstName" value="<?php echo htmlspecialchars($user_data['first_name'] ?? ''); ?>" required pattern="^[^0-9]*$">
+            <label for="first_name">Όνομα:</label>
+            <input type="text" name="first_name" id="firstName" value="<?php echo htmlspecialchars($user_data['first_name'] ?? ''); ?>" required data-original-value="<?php echo htmlspecialchars($user_data['first_name'] ?? ''); ?>" pattern="^[^0-9]*$">
           </div>
 
           <div class="form-box">
-            <label for="last_name">Επίθετο: &#9888;</label>
-            <input type="text" name="last_name" id="lastName" value="<?php echo htmlspecialchars($user_data['last_name'] ?? ''); ?>" required pattern="^[^0-9]*$">
+            <label for="last_name">Επίθετο:</label>
+            <input type="text" name="last_name" id="lastName" value="<?php echo htmlspecialchars($user_data['last_name'] ?? ''); ?>" 
+            data-original-value="<?php echo htmlspecialchars($user_data['last_name'] ?? ''); ?>" pattern="^[^0-9]*$">
           </div>
 
           <div class="form-box">
-            <label for="student_id">Αριθμός Μητρώου: &#9888;</label>
-            <input type="text" name="student_id" id="studentId" value="<?php echo htmlspecialchars($user_data['student_id'] ?? ''); ?>" required pattern="2022[0-9]{9}">
+            <label for="student_id">Αριθμός Μητρώου:</label>
+            <input type="text" name="student_id" id="studentId" value="<?php echo htmlspecialchars($user_data['student_id'] ?? ''); ?>"
+            data-original-value="<?php echo htmlspecialchars($user_data['student_id'] ?? ''); ?>" pattern="2022[0-9]{9}">
           </div>
 
           <div class="form-box">
-            <label for="phone">Τηλέφωνο: &#9888;</label>
-            <input type="text" name="phone" id="phone" value="<?php echo htmlspecialchars($user_data['phone'] ?? ''); ?>" required required pattern="[0-9]{10}">
+            <label for="phone">Τηλέφωνο:</label>
+            <input type="tel" name="phone" id="phone" value="<?php echo htmlspecialchars($user_data['phone'] ?? ''); ?>"
+            data-original-value="<?php echo htmlspecialchars($user_data['phone'] ?? ''); ?>" pattern="[0-9]{10}">
           </div>
 
           <div class="form-box">
-            <label for="email">Τηλέφωνο: &#9888;</label>
-            <input type="text" name="email" id="email" value="<?php echo htmlspecialchars($user_data['email'] ?? ''); ?>" required required pattern="[0-9]{10}">
+            <label for="email">Email: &#9888;</label>
+            <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($user_data['email'] ?? ''); ?>" 
+            data-original-value="<?php echo htmlspecialchars($user_data['email'] ?? ''); ?>" pattern="[0-9]{10}"
+            required title="Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email.">
+          </div>
+
+          <hr>
+          <h2>Αλλαγή Κωδικού Πρόσβασης</h2>
+
+          <div class="form-box">
+            <label for="newPassword">Νέος Κωδικός Πρόσβασης:</label>
+            <input type="password" name="new_password" id="newPassword" placeholder="Εισάγετε τον νέο σας κωδικό" 
+            pattern="(?=.*[!@#$%^&*()_+\-=\[\]{};':\\|,.&lt;>\/?~`]).{5,}" title="Τουλάχιστον 5 χαρακτήρες, 1 σύμβολο." data-original-value="">
+            
+            <div class="password-reqs">
+              Ο κωδικός πρέπει να περιέχει:
+              <ul>
+                <li>Τουλάχιστον 5 χαρακτήρες</li>
+                <li>Τουλάχιστον 1 ειδικό χαρακτήρα (π.χ. !, #, $)</li>
+              </ul>
+            </div>
+          </div>
+
+          <div class="form-box">
+            <label for="confirmNewPassword">Επιβεβαίωση Νέου Κωδικού:</label>
+            <input type="password" name="confirm_new_password" id="confirmNewPassword" placeholder="Επιβεβαιώστε τον νέο σας κωδικό">
+          </div>
+
+          <div class="form-buttons">
+            <button type="submit" class="submit-button">Ενημέρωση Προφίλ</button>
           </div>
         </form>
+      <?php else: ?>
+        <p class="error-loading-data">Δεν ήταν δυνατή η φόρτωση των δεδομένων του προφίλ σας.</p>
+      <?php endif; ?>
     </div>
 
     <footer>
