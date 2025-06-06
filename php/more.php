@@ -115,7 +115,7 @@
               </div>
             </li>
             <li class="alexandria">
-              <div class="uni-name">Alexandria University - Ελλάδα</div>
+              <div class="uni-name">Alexandria University - Αίγυπτος</div>
               <div class="uni-info">
                 <b>Ακαδημαϊκά πλεονεκτήματα:</b> Θαλάσσιες Επιστήμες, ηθοποιία,
                 Αρχαιολογία. <br />
