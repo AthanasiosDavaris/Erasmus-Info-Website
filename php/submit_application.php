@@ -75,19 +75,25 @@
     $errors[] = "Σφάλμα κατά την αποθήκευση του πτυχίου Αγγλικών.";
   }
 
-  $other_languages_certificates_paths = [];
-  if (isset($_FILES['other_languages_certificates_files']) && !empty(array_filter($_FILES['other_languages_certificates_files']['name']))) {
-    foreach ($_FILES['other_languages_certificates_files']['temp_name'] as $key => $temp_name) {
-      if ($_FILES['other_languages_certificates_files']['error'][$key] === UPLOAD_ERR_OK) {
-        $filename = 'other_language_' . $user_id . '_' . time() . '_' . $key . '.pdf';
-        $filepath = $upload_dir . $filename;
-        if (move_uploaded_file($temp_name, $filepath)) {
-          $other_languages_certificates_paths[] = $filepath;
+
+  if ($other_languages === 'yes' && empty($_FILES['other_languages_certificates_files']['name'][0])) {
+    $errors[] = "Επιλέξατε 'Ναι' για άλλες γλώσσες, αλλά δεν ανεβάσατε κάποιο πτυχίο.";
+  } else {
+    $other_languages_certificates_paths = [];
+    if (isset($_FILES['other_languages_certificates_files']) && !empty(array_filter($_FILES['other_languages_certificates_files']['name']))) {
+      foreach ($_FILES['other_languages_certificates_files']['temp_name'] as $key => $temp_name) {
+        if ($_FILES['other_languages_certificates_files']['error'][$key] === UPLOAD_ERR_OK) {
+          $filename = 'other_language_' . $user_id . '_' . time() . '_' . $key . '.pdf';
+          $filepath = $upload_dir . $filename;
+          if (move_uploaded_file($temp_name, $filepath)) {
+            $other_languages_certificates_paths[] = $filepath;
+          }
         }
       }
     }
+    $other_languages_certificates_filepaths = !empty($other_languages_certificates_paths) ? json_encode($other_languages_certificates_paths) : null;
   }
-  $other_languages_certificates_filepaths = !empty($other_languages_certificates_paths) ? json_encode($other_languages_certificates_paths) : null;
+  
 
   if (!empty($errors)) {
     $_SESSION['form_errors'] = $errors; // check again

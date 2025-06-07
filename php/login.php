@@ -50,10 +50,7 @@
       header("Location: login.php?error=3");
       exit;
     }
-  } else {
-    header("Location: login.php");
-    exit;
-  }
+  } 
 ?>
 
 <!DOCTYPE html>

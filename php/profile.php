@@ -172,7 +172,7 @@
         <form id="profileUpdateForm" action="update_user_info.php" method="post" class="profile-form">
           <div class="form-box">
             <label for="first_name">Όνομα:</label>
-            <input type="text" name="first_name" id="firstName" value="<?php echo htmlspecialchars($user_data['first_name'] ?? ''); ?>" required data-original-value="<?php echo htmlspecialchars($user_data['first_name'] ?? ''); ?>" pattern="^[^0-9]*$">
+            <input type="text" name="first_name" id="firstName" value="<?php echo htmlspecialchars($user_data['first_name'] ?? ''); ?>" data-original-value="<?php echo htmlspecialchars($user_data['first_name'] ?? ''); ?>" pattern="^[^0-9]*$">
           </div>
 
           <div class="form-box">
@@ -196,7 +196,7 @@
           <div class="form-box">
             <label for="email">Email: &#9888;</label>
             <input type="email" name="email" id="email" value="<?php echo htmlspecialchars($user_data['email'] ?? ''); ?>" 
-            data-original-value="<?php echo htmlspecialchars($user_data['email'] ?? ''); ?>" pattern="[0-9]{10}"
+            data-original-value="<?php echo htmlspecialchars($user_data['email'] ?? ''); ?>"
             required title="Παρακαλώ εισάγετε μια έγκυρη διεύθυνση email.">
           </div>
 

@@ -72,8 +72,8 @@
   }
 
   if (!empty($new_student_id) && $new_student_id !== $user_data['student_id']) {
-    if (preg_match('/^2022[0-9]{9}$/', $new_student_id)) {
-      header("Location: profile.php?update=validation&error_msg=invalid_name");
+    if (!preg_match('/^2022[0-9]{9}$/', $new_student_id)) {
+      header("Location: profile.php?update=validation&error_msg=invalid_student_id");
       exit;
     }
     $sql_field_to_update[] = "student_id = :student_id";
@@ -81,8 +81,8 @@
   }
 
   if (!empty($new_phone) && $new_phone !== $user_data['phone']) {
-    if (preg_match('/^[0-9]{10}$/', $new_phone)) {
-      header("Location: profile.php?update=validation&error_msg=invalid_name");
+    if (!preg_match('/^[0-9]{10}$/', $new_phone)) {
+      header("Location: profile.php?update=validation&error_msg=invalid_phone");
       exit;
     }
     $sql_field_to_update[] = "phone = :phone";
