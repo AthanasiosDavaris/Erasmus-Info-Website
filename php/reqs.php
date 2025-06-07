@@ -40,7 +40,11 @@
             <li><a href="reqs.php">Απαιτήσεις</a></li>
             <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
               <li><a href="application.php">Δήλωση</a></li>
-              <li><a href="profile.php">Προφίλ (<?php echo htmlspecialchars($_SESSION['username']); ?>)</a></li>
+              <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+                <li><a href="admin_dashboard.php"></a>Πίνακας Ελέγχου</li>
+              <?php else: ?>
+                <li><a href="profile.php">Προφίλ (<?php echo htmlspecialchars($_SESSION['username']); ?>)</a></li>
+              <?php endif; ?>
               <li><a href="logout.php">Αποσύνδεση</a></li>
             <?php else: ?>
               <li><a href="sign-up.php">Εγγραφή</a></li>

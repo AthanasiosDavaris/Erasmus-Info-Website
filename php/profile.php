@@ -118,39 +118,43 @@
 <body>
   <header>
       <!-- Erasmus Logo -->
-      <div class="erasmus-logo-container">
-        <a href="index.php">
-          <img
-            src="../media/erasmus_logo.png"
-            alt="Erasmus Logo"
-            class="erasmus-logo"
-          />
-        </a>
-      </div>
+    <div class="erasmus-logo-container">
+      <a href="index.php">
+        <img
+          src="../media/erasmus_logo.png"
+          alt="Erasmus Logo"
+          class="erasmus-logo"
+        />
+      </a>
+    </div>
 
       <!-- Navigation Bar -->
-      <div class="navbar">
-        <nav>
-          <ul>
-            <li><a href="more.php">Περισσότερες Πληροφορίες</a></li>
-            <li><a href="reqs.php">Απαιτήσεις</a></li>
-            <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
-              <li><a href="application.php">Δήλωση</a></li>
-              <li><a href="profile.php">Προφίλ (<?php echo htmlspecialchars($_SESSION['username']); ?>)</a></li>
-              <li><a href="logout.php">Αποσύνδεση</a></li>
+    <div class="navbar">
+      <nav>
+        <ul>
+          <li><a href="more.php">Περισσότερες Πληροφορίες</a></li>
+          <li><a href="reqs.php">Απαιτήσεις</a></li>
+          <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
+            <li><a href="application.php">Δήλωση</a></li>
+            <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
+              <li><a href="admin_dashboard.php"></a>Πίνακας Ελέγχου</li>
             <?php else: ?>
-              <li><a href="sign-up.php">Εγγραφή</a></li>
-              <li><a href="login.php">Σύνδεση</a></li>
+              <li><a href="profile.php">Προφίλ (<?php echo htmlspecialchars($_SESSION['username']); ?>)</a></li>
             <?php endif; ?>
-          </ul>
-        </nav>
-      </div>
+            <li><a href="logout.php">Αποσύνδεση</a></li>
+          <?php else: ?>
+            <li><a href="sign-up.php">Εγγραφή</a></li>
+            <li><a href="login.php">Σύνδεση</a></li>
+          <?php endif; ?>
+        </ul>
+      </nav>
+    </div>
 
-      <!-- Navigation Bar Mobile version -->
-      <div class="mobile-navbar" onclick="toggleMenu()">
-        <div class="dropdown"></div>
-      </div>
-    </header>
+    <!-- Navigation Bar Mobile version -->
+    <div class="mobile-navbar" onclick="toggleMenu()">
+      <div class="dropdown"></div>
+    </div>
+  </header>
 
     <div class="container">
       <div class="profile-container">
@@ -232,34 +236,34 @@
     </div>
 
     <footer>
-        <section class="left-section">
-          <a href="https://dit.uop.gr" target="_blank">
-            <img
-              src="../media/dit-uop-logo.jpg"
-              alt="University of Peloponnese, Department of Informatics and Telecommunications"
-            />
-          </a>
-        </section>
-        <section class="mid-section">
-          &#169; 2025 Thanos Davaris. All rights reserved.
-        </section>
-        <section class="right-section">
-          <a
-            href="https://github.com/AthanasiosDavaris"
-            class="social-media-button"
-            target="_blank"
-          >
-            <img src="../media/github.png" alt="github" />
-          </a>
-          <!-- Needs fix -->
-          <a
-            href="https://www.linkedin.com/in/athanasios-davaris-8483a9338"
-            class="social-media-button"
-            target="_blank"
-          >
-            <img src="../media/linkedin.png" alt="linkedin" />
-          </a>
-        </section>
-      </footer>
-</body>
+      <section class="left-section">
+        <a href="https://dit.uop.gr" target="_blank">
+          <img
+            src="../media/dit-uop-logo.jpg"
+            alt="University of Peloponnese, Department of Informatics and Telecommunications"
+          />
+        </a>
+      </section>
+      <section class="mid-section">
+        &#169; 2025 Thanos Davaris. All rights reserved.
+      </section>
+      <section class="right-section">
+        <a
+          href="https://github.com/AthanasiosDavaris"
+          class="social-media-button"
+          target="_blank"
+        >
+          <img src="../media/github.png" alt="github" />
+        </a>
+        
+        <a
+          href="https://www.linkedin.com/in/athanasios-davaris-8483a9338"
+          class="social-media-button"
+          target="_blank"
+        >
+          <img src="../media/linkedin.png" alt="linkedin" />
+        </a>
+      </section>
+    </footer>
+  </body>
 </html>

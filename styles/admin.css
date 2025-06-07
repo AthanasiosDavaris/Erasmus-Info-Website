@@ -1,0 +1,158 @@
+:root {
+  --erasmus-color: rgb(5, 120, 204);
+  --success-green: rgb(40, 167, 69);
+  --success-bg: rgb(212, 237, 218);
+  --light-gray-bg: rgb(242, 250, 250);
+  --dark-text: rgb(52, 73, 94);
+}
+
+body {
+  background-color: var(--light-gray-bg);
+}
+
+* {
+  font-family: Open Sans, Arial, Helvetica, sans-serif;
+  font-size: 15px;
+}
+
+main {
+  max-width: 800px;
+  margin: 40px auto;
+  padding: 30px 40px;
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+}
+
+main h2 {
+  font-size: 24px;
+  font-weight: bold;
+  color: var(--dark-text);
+  margin-bottom: 10px;
+  padding-bottom: 10px;
+  border-bottom: 2px solid whitesmoke;
+}
+
+main p {
+  font-size: 15px;
+  line-height: 1.6;
+  color: darkgray;
+  margin-bottom: 30px;
+}
+
+.form-group {
+  margin-bottom: 25px;
+}
+
+.form-group label {
+  display: block;
+  font-weight: bold;
+  color: var(--dark-text);
+  margin-bottom: 8px;
+}
+
+.form-group input[type="date"] {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 6px;
+  font-size: 16px;
+  transition: border-color 0.3s, box-shadow 0.3s;
+}
+
+.form-group input[type="date"]:focus {
+  border-color: var(--erasmus-color);
+  box-shadow: 0 0 0 3px rgba(5, 120, 204, 0.2);
+  outline: none;
+}
+
+.form-group small {
+  display: block;
+  margin-top: 10px;
+  font-style: italic;
+  color: rgb(119, 119, 119);
+}
+
+.admin-button {
+  width: 100%;
+  padding: 15px;
+  background: var(--erasmus-color);
+  color: white;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  font-size: 16px;
+  font-weight: bold;
+  transition: background-color 0.3s;
+  margin-top: 10px;
+}
+
+.admin-button:hover {
+  background: steelblue;
+}
+
+.back-link {
+  display: inline-block;
+  margin-top: 30px;
+  color: var(--erasmus-color);
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.back-link:hover {
+  color: steelblue;
+}
+
+.success-message {
+  padding: 15px;
+  margin-bottom: 20px;
+  border: 1px solid var(--success-green);
+  color: chartreuse;
+  background-color: var(--success-bg);
+  border-radius: 6px;
+  text-align: center;
+}
+
+.applications-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-top: 20px;
+  font-size: 24px;
+}
+
+.applications-table th,
+.applications-table td {
+  border: 1px solid rgb(221, 221, 221);
+  padding: 12px;
+  text-align: left;
+  vertical-align: top;
+}
+
+.applications-table th {
+  background-color: rgb(248, 249, 250);
+  font-weight: bold;
+  color: var(--dark-text);
+}
+
+.applications-table a {
+  color: var(--erasmus-color);
+  text-decoration: none;
+  display: inline-block;
+  margin-bottom: 4px;
+}
+
+.applications-table a:hover {
+  text-decoration: underline;
+}
+
+@media (max-width: 902px) {
+  main {
+    margin: 20px 15px;
+    padding: 20px;
+  }
+
+  main h2 {
+    font-size: 20px;
+  }
+}

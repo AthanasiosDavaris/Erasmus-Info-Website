@@ -169,6 +169,15 @@ button[type="submit"]:hover {
     margin-bottom: 15px;
 }
 
+.period-message {
+    padding: 20px;
+    background-color: rgb(248, 215, 218);
+    border: 1px solid palevioletred;
+    color: rgb(114, 28, 36);
+    border-radius: 5px;
+    text-align: center;
+}
+
 @media (min-width: 600px) and (max-width: 902px) {
     .container {
         margin: 80px 15px 0;
