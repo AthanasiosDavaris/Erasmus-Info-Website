@@ -1,5 +1,21 @@
 <?php
   session_start();
+  require_once 'db_config.php';
+
+  $accepted_students = [];
+
+  try {
+    $db_info = "mysql:host=$db_host;dbname=$db_name;charset=utf8";
+    $pdo = new PDO($db_info, $db_user, $db_password, [PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION, PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC]);
+
+    $settings = $pdo->query("SELECT results_published FROM application_settings WHERE id = 1")->fetch();
+
+    if ($settings && $settings['results_published'] === 'yes') {
+      $accepted_students = $pdo->query("SELECT first_name, last_name, university1 FROM applications WHERE status = 'accepted' ORDER BY last_name ASC")->fetchAll();
+    }
+  } catch (PDOException $e) {
+    error_log("Error on more.php: " . $e->getMessage());
+  }
 ?>
 <!DOCTYPE html>
 <html lang="el">
@@ -40,7 +56,7 @@
             <?php if (isset($_SESSION['login']) && $_SESSION['login'] === true): ?>
               <li><a href="application.php">Δήλωση</a></li>
               <?php if (isset($_SESSION['role']) && $_SESSION['role'] === 'admin'): ?>
-                <li><a href="admin_dashboard.php"></a>Πίνακας Ελέγχου</li>
+                <li><a href="admin_dashboard.php">Πίνακας Ελέγχου</a></li>
               <?php else: ?>
                 <li><a href="profile.php">Προφίλ (<?php echo htmlspecialchars($_SESSION['username']); ?>)</a></li>
               <?php endif; ?>
@@ -72,6 +88,33 @@
           βασικούς οδηγούς για να κάνετε την περιπέτειά σας αξέχαστη.
         </div>
       </main>
+
+      <?php if (!empty($accepted_students)): ?>
+        <section class="results-section">
+          <div class="section-title">Αποτελέσματα Erasmus+</div>
+          <p>Συγχαρητήρια στους παρακάτω φοιτητές που επιλέχθηκαν για το πρόγραμμα Erasmus+!</p>
+          <div class="table-responsive">
+            <table class="results-table">
+              <thead>
+                <tr>
+                  <th>Επίθετο</th>
+                  <th>Όνομα</th>
+                  <th>Πανεπιστήμιο 1ης Επιλογής</th>
+                </tr>
+              </thead>
+              <tbody>
+                <?php foreach ($accepted_students as $student): ?>
+                  <tr>
+                    <td><?php echo htmlspecialchars($student['last_name']); ?></td>
+                    <td><?php echo htmlspecialchars($student['first_name']); ?></td>
+                    <td><?php echo htmlspecialchars($student['university1']); ?></td>
+                  </tr>
+                <?php endforeach; ?>
+              </tbody>
+            </table>
+          </div>
+        </section>
+      <?php endif; ?>
 
       <section class="part-unis">
         <div class="section-title">Συνεργαζόμενα Πανεπιστήμια</div>

@@ -20,6 +20,7 @@ body {
     grid-gap: 10px;
     grid-template-areas:
     "m m m m m m m m m m"
+    "r r r r r r r r r r"
     "u u u u u u u u u u"
     "i i i i i i i i i i"
     "q q q q q q q q q q"
@@ -195,6 +196,45 @@ footer {
 
 .faq-container {
     margin: 20px;
+}
+
+.results-section {
+    grid-area: r;
+    margin: 20px 0;
+    padding: 30px;
+    background-color: aliceblue;
+    border: 1px solid var(--erasmus-color);
+    border-radius: 8px;
+}
+
+.results-section p {
+    margin-bottom: 20px;
+    font-size: 16px;
+    line-height: 1.6;
+}
+
+.table-responsive {
+    overflow-x: auto;
+}
+
+.results-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: white;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+.results-table th,
+.results-table td {
+    padding: 15px;
+    border-bottom: 1px solid rgb(221, 221, 221);
+    text-align: left;
+}
+
+.results-table th {
+    background-color: rgb(248, 249, 250);
+    font-weight: bold;
+    color: rgb(52,73,94);
 }
 
 @media (max-width: 902px) and (min-width: 600px) {
