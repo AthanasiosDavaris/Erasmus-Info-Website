@@ -16,7 +16,7 @@ body {
 }
 
 main {
-  max-width: 800px;
+  max-width: 90%;
   margin: 40px auto;
   padding: 30px 40px;
   background-color: white;
@@ -24,13 +24,21 @@ main {
   box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
 }
 
+main h1,
 main h2 {
-  font-size: 24px;
   font-weight: bold;
   color: var(--dark-text);
   margin-bottom: 10px;
   padding-bottom: 10px;
   border-bottom: 2px solid whitesmoke;
+}
+
+main h1 {
+  font-size: 28px;
+}
+
+main h2 {
+  font-size: 24px;
 }
 
 main p {
@@ -51,7 +59,9 @@ main p {
   margin-bottom: 8px;
 }
 
-.form-group input[type="date"] {
+.form-group input[type="date"],
+.form-group input[type="number"], 
+.form-group select {
   width: 100%;
   padding: 12px;
   border: 1px solid rgb(204, 204, 204);
@@ -60,7 +70,8 @@ main p {
   transition: border-color 0.3s, box-shadow 0.3s;
 }
 
-.form-group input[type="date"]:focus {
+.form-group input:focus,
+.form-group select:focus {
   border-color: var(--erasmus-color);
   box-shadow: 0 0 0 3px rgba(5, 120, 204, 0.2);
   outline: none;
@@ -74,8 +85,7 @@ main p {
 }
 
 .admin-button {
-  width: 100%;
-  padding: 15px;
+  padding: 12px 25px;
   background: var(--erasmus-color);
   color: white;
   border: none;
@@ -84,7 +94,6 @@ main p {
   font-size: 16px;
   font-weight: bold;
   transition: background-color 0.3s;
-  margin-top: 10px;
 }
 
 .admin-button:hover {
@@ -93,32 +102,95 @@ main p {
 
 .back-link {
   display: inline-block;
-  margin-top: 30px;
+  margin-bottom: 20px;
   color: var(--erasmus-color);
   text-decoration: none;
   font-weight: bold;
-  transition: color 0.3s;
 }
 
 .back-link:hover {
   color: steelblue;
 }
 
-.success-message {
+.success-message,
+.info-message {
   padding: 15px;
   margin-bottom: 20px;
+  border-radius: 6px;
+  text-align: center;
+}
+
+.success-message {
   border: 1px solid var(--success-green);
   color: chartreuse;
   background-color: var(--success-bg);
-  border-radius: 6px;
-  text-align: center;
+}
+
+.info-message {
+  background-color: ivory;
+  color: rgb(133, 100, 4);
+  border: 1px solid palegoldenrod;
+}
+
+.filter-form {
+  background-color: ghostwhite;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid paleturquoise;
+  margin-bottom: 30px;
+}
+
+.filter-form h3 {
+  margin-top: 0;
+  margin-bottom: 20px;
+  font-size: 18px;
+  color: var(--dark-text);
+}
+
+.filter-controls {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.filter-buttons {
+  margin-top: 20px;
+  display: flex;
+  align-items: center;
+  gap: 15px;
+}
+
+.filter-buttons .admin-button {
+  width: auto;
+}
+
+.clear-filter-link {
+  color: rgb(108, 117, 125);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.clear-filter-link:hover {
+  color: var(--dark-text);
+  text-decoration: underline;
+}
+
+.form-divider {
+  border: 0;
+  height: 1px;
+  background-color: paleturquoise;
+  margin: 30px 0;
+}
+
+.table-responsive {
+  overflow-x: auto;
 }
 
 .applications-table {
   width: 100%;
   border-collapse: collapse;
   margin-top: 20px;
-  font-size: 24px;
+  font-size: 14px;
 }
 
 .applications-table th,
@@ -135,6 +207,14 @@ main p {
   color: var(--dark-text);
 }
 
+.applications-table tr:nth-child(even) {
+  background-color: rgb(253, 253, 253);
+}
+
+.applications-table tr:hover {
+  background-color: antiquewhite;
+}
+
 .applications-table a {
   color: var(--erasmus-color);
   text-decoration: none;
@@ -146,13 +226,34 @@ main p {
   text-decoration: underline;
 }
 
+.status-col {
+  width: 60px;
+  text-align: center !important;
+}
+
+.status-checkbox {
+  width: 20px;
+  height: 20px;
+  cursor: pointer;
+}
+
+.update-button-container {
+  margin-top: 25px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.update-button-container .admin-button {
+  width: auto;
+}
+
 @media (max-width: 902px) {
   main {
     margin: 20px 15px;
     padding: 20px;
   }
 
-  main h2 {
-    font-size: 20px;
+  .filter-controls {
+    grid-template-columns: 1fr;
   }
 }

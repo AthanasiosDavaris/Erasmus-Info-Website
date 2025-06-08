@@ -74,8 +74,7 @@
       <ul>
         <li><a href="manage_application_period.php">Διαχείριση Περιόδου Αιτήσεων</a></li>
         <li><a href="manage_users.php">Διαχείριση Χρηστών</a></li>
-        <li><a href="view_applications.php">Προβολή Όλων των Αιτήσεων</a></li>
-        <li><a href="site_settings.php">Ρυθμίσεις Ιστοσελίδας</a></li>
+        <li><a href="view_applications.php">Προβολή & Διαχείριση Αιτήσεων</a></li>
         <li><a href="logout.php">Αποσύνδεση</a></li>
       </ul>
     </nav>

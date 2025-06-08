@@ -12,8 +12,10 @@
 
   try {
     $db_info = "mysql:host=$db_host;dbname=$db_name;charset=utf8";
-    $pdo = new PDO($db_info, $db_user, $db_password);
-    $pdo->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
+    $pdo = new PDO($db_info, $db_user, $db_password, [
+      PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+      PDO::ATTR_DEFAULT_FETCH_MODE => PDO::FETCH_ASSOC
+    ]);
 
     $statement = $pdo->query("SELECT * FROM applications ORDER BY submission_date DESC");
     $applications = $statement->fetchAll();
