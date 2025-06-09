@@ -15,7 +15,7 @@
 
   if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['update_status'])) {
     $accepted = isset($_POST['accepted']) ? array_keys($_POST['accepted']) : [];
-    $displayed_ids = isset($_POST['displayed_ids']) ? $_POST['accdisplayed_ids'] : [];
+    $displayed_ids = isset($_POST['displayed_ids']) ? $_POST['displayed_ids'] : [];
 
     try {
       $pdo->beginTransaction();
@@ -46,7 +46,7 @@
   $error_message = '';
 
   try {
-    $universities = $pdo->query("SELECT name FROM universities ORDER BY name ASC")->fetchAll();
+    $universities = $pdo->query("SELECT university_name FROM universities ORDER BY university_name ASC")->fetchAll();
 
     $min_percentage = isset($_GET['min_percentage']) && is_numeric($_GET['min_percentage']) ? (int)$_GET['min_percentage'] : null;
     $selected_university = isset($_GET['university']) ? trim($_GET['university']) : '';
@@ -153,8 +153,8 @@
           <select name="university" id="university">
             <option value="">-- Όλα τα Πανεπιστήμια --</option>
             <?php foreach ($universities as $uni): ?>
-              <option value="<?php echo htmlspecialchars($uni['name']); ?>" <?php echo ($uni['name'] === $selected_university) ? 'selected' : ''; ?>>
-                <?php echo htmlspecialchars($uni['name']); ?>
+              <option value="<?php echo htmlspecialchars($uni['university_name']); ?>" <?php echo ($uni['university_name'] === $selected_university) ? 'selected' : ''; ?>>
+                <?php echo htmlspecialchars($uni['university_name']); ?>
               </option>
             <?php endforeach; ?>
           </select>

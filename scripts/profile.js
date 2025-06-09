@@ -16,7 +16,7 @@ document.addEventListener('DOMContentLoaded', function() {
       fieldDefs.forEach(field => {
         const input = document.getElementById(field.id);
         if (input) {
-          const currentVal = input.ariaValueMax.trim();
+          const currentVal = input.value.trim();
           const originalVal = input.dataset.originalVal.trim();
 
           if(currentVal !== originalVal) {

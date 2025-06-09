@@ -47,7 +47,7 @@
       $user_statement->execute();
       $user_data = $user_statement->fetch();
 
-      $universities_statement = $pdo->query("SELECT name FROM universities ORDER BY name ASC");
+      $universities_statement = $pdo->query("SELECT university_name FROM universities ORDER BY university_name ASC");
       $universities = $universities_statement->fetchAll(PDO::FETCH_COLUMN);
 
       if (!$user_data) {

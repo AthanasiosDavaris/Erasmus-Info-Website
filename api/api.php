@@ -90,7 +90,7 @@ function getUniversity($pdo, $id) {
 }
 
 function createUniversity($pdo) {
-  $data = json_encode(file_get_contents("php://input"));
+  $data = json_decode(file_get_contents("php://input"));
 
   if (empty($data->university_name) || empty($data->country)) {
     http_response_code(400);
@@ -117,7 +117,7 @@ function createUniversity($pdo) {
 }
 
 function updateUniversity($pdo, $id) {
-  $data = json_encode(file_get_contents("php://input"));
+  $data = json_decode(file_get_contents("php://input"));
 
   if (empty($data->university_name) || empty(data->country)) {
     http_response_code(400);
